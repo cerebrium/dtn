@@ -1,5 +1,6 @@
 import tileSystem from "../quadkey/index";
-import main from "../index";
+import { main } from "../routes/utils/index";
+const strikes = require("../lightning");
 
 const sampleLightningData = [
   {
@@ -83,8 +84,26 @@ describe("convertLatLongToQuadKey", () => {
 describe("main", () => {
   it("should log for every asset that has the correct quadKey", () => {
     const spy = jest.spyOn(console, "log");
-    main(sampleAsset, sampleLightningData);
+    main(sampleAsset, sampleLightningData[0]);
+    main(sampleAsset, sampleLightningData[0]);
     expect(spy).toHaveBeenCalledWith("Test Owner:Test Asset");
+
+    // Make sure it isn't calling more than once per strike
     expect(spy).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("dataIngestion", () => {
+  it("should read the json file line by line", () => {
+    const spy = jest.spyOn(console, "log");
+
+    // Maintaining call in previous test, clear to check for correct read
+    spy.mockClear();
+
+    for (let i = 0; i < 10; i++) {
+      console.log(strikes[i]);
+    }
+
+    expect(spy).toHaveBeenCalledTimes(10);
   });
 });

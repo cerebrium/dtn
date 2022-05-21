@@ -4,7 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = __importDefault(require("../quadkey/index"));
-const index_2 = __importDefault(require("../index"));
+const index_2 = require("../routes/utils/index");
+const strikes = require("../lightning");
 const sampleLightningData = [
     {
         flashType: 1,
@@ -82,9 +83,22 @@ describe("convertLatLongToQuadKey", () => {
 describe("main", () => {
     it("should log for every asset that has the correct quadKey", () => {
         const spy = jest.spyOn(console, "log");
-        (0, index_2.default)(sampleAsset, sampleLightningData);
+        (0, index_2.main)(sampleAsset, sampleLightningData[0]);
+        (0, index_2.main)(sampleAsset, sampleLightningData[0]);
         expect(spy).toHaveBeenCalledWith("Test Owner:Test Asset");
+        // Make sure it isn't calling more than once per strike
         expect(spy).toHaveBeenCalledTimes(1);
+    });
+});
+describe("dataIngestion", () => {
+    it("should read the json file line by line", () => {
+        const spy = jest.spyOn(console, "log");
+        // Maintaining call in previous test, clear to check for correct read
+        spy.mockClear();
+        for (let i = 0; i < 10; i++) {
+            console.log(strikes[i]);
+        }
+        expect(spy).toHaveBeenCalledTimes(10);
     });
 });
 //# sourceMappingURL=main.spec.js.map
