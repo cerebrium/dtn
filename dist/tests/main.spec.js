@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = __importDefault(require("../quadkey/index"));
 const index_2 = require("../routes/utils/index");
 const strikes = require("../lightning");
+const assets_json_1 = __importDefault(require("../assets.json"));
 const sampleLightningData = [
     {
         flashType: 1,
@@ -97,6 +98,14 @@ describe("dataIngestion", () => {
         spy.mockClear();
         for (let i = 0; i < 10; i++) {
             console.log(strikes[i]);
+        }
+        expect(spy).toHaveBeenCalledTimes(10);
+    });
+    it("should read the asset array", () => {
+        const spy = jest.spyOn(console, "log");
+        spy.mockClear();
+        for (let i = 0; i < 10; i++) {
+            console.log(assets_json_1.default[i]);
         }
         expect(spy).toHaveBeenCalledTimes(10);
     });

@@ -1,6 +1,7 @@
 import tileSystem from "../quadkey/index";
 import { main } from "../routes/utils/index";
 const strikes = require("../lightning");
+import assets from "../assets.json";
 
 const sampleLightningData = [
   {
@@ -102,6 +103,17 @@ describe("dataIngestion", () => {
 
     for (let i = 0; i < 10; i++) {
       console.log(strikes[i]);
+    }
+
+    expect(spy).toHaveBeenCalledTimes(10);
+  });
+
+  it("should read the asset array", () => {
+    const spy = jest.spyOn(console, "log");
+    spy.mockClear();
+
+    for (let i = 0; i < 10; i++) {
+      console.log(assets[i]);
     }
 
     expect(spy).toHaveBeenCalledTimes(10);

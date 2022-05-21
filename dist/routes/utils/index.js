@@ -12,12 +12,16 @@ function createQuadKeyMap(assets) {
     });
     return quadKeyMap;
 }
-function main(assets, strike) {
+function main(assets, strikes) {
     const quadKeyMap = createQuadKeyMap(assets);
-    const quadKey = quadkey_1.default.convertLatLongToQuadKey(strike.latitude, strike.longitude);
-    if (quadKeyMap[quadKey] && !quadKeyMap[quadKey].visited) {
-        console.log(`${quadKeyMap[quadKey].assetOwner}:${quadKeyMap[quadKey].assetName}`);
-        quadKeyMap[quadKey].visited = true;
+    for (let i = 0; i < strikes.length; i++) {
+        let strike = strikes[i];
+        const quadKey = quadkey_1.default.convertLatLongToQuadKey(strike.latitude, strike.longitude);
+        console.log("quadkey: ", quadKey);
+        if (quadKeyMap[quadKey] && !quadKeyMap[quadKey].visited) {
+            console.log(`${quadKeyMap[quadKey].assetOwner}:${quadKeyMap[quadKey].assetName}`);
+            quadKeyMap[quadKey].visited = true;
+        }
     }
 }
 exports.main = main;

@@ -7,13 +7,8 @@
     "test": "tsc && jest dist/tests/main.spec.js",
     "run": "tsc && node dist/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://bitbucket.org/dtnse/lightning-alert.git"
-  },
   "author": "Nicholas Shankland",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/dtnse/lightning-alert#readme",
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/jest": "^27.5.1",

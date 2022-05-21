@@ -43,16 +43,20 @@ function createQuadKeyMap(assets: Array<Asset>) {
   return quadKeyMap;
 }
 
-export function main(assets: Array<Asset>, strike: LightningStrike) {
+export function main(assets: Array<Asset>, strikes: any) {
   const quadKeyMap = createQuadKeyMap(assets);
-  const quadKey = tileSystem.convertLatLongToQuadKey(
-    strike.latitude,
-    strike.longitude
-  );
-  if (quadKeyMap[quadKey] && !quadKeyMap[quadKey].visited) {
-    console.log(
-      `${quadKeyMap[quadKey].assetOwner}:${quadKeyMap[quadKey].assetName}`
+  for (let i = 0; i < strikes.length; i++) {
+    let strike = strikes[i];
+    const quadKey = tileSystem.convertLatLongToQuadKey(
+      strike.latitude,
+      strike.longitude
     );
-    quadKeyMap[quadKey].visited = true;
+    console.log("quadkey: ", quadKey);
+    if (quadKeyMap[quadKey] && !quadKeyMap[quadKey].visited) {
+      console.log(
+        `${quadKeyMap[quadKey].assetOwner}:${quadKeyMap[quadKey].assetName}`
+      );
+      quadKeyMap[quadKey].visited = true;
+    }
   }
 }
