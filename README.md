@@ -16,16 +16,16 @@ An example 'strike' coming off of the exchange looks like this:
 
 ```json
 {
-    "flashType": 1,
-    "strikeTime": 1386285909025,
-    "latitude": 33.5524951,
-    "longitude": -94.5822016,
-    "peakAmps": 15815,
-    "reserved": "000",
-    "icHeight": 8940,
-    "receivedTime": 1386285919187,
-    "numberOfSensors": 17,
-    "multiplicity": 1
+  "flashType": 1,
+  "strikeTime": 1386285909025,
+  "latitude": 33.5524951,
+  "longitude": -94.5822016,
+  "peakAmps": 15815,
+  "reserved": "000",
+  "icHeight": 8940,
+  "receivedTime": 1386285919187,
+  "numberOfSensors": 17,
+  "multiplicity": 1
 }
 ```
 
@@ -41,11 +41,11 @@ An example 'strike' coming off of the exchange looks like this:
 An example of an 'asset' is as follows:
 
 ```json
-  {
-    "assetName":"Dante Street",
-    "quadKey":"023112133033",
-    "assetOwner":"6720"
-  }
+{
+  "assetName": "Dante Street",
+  "quadKey": "023112133033",
+  "assetOwner": "6720"
+}
 ```
 
 ---
@@ -80,7 +80,7 @@ Since code is read more often than it is written, we want to our projects well s
 
 Your program should also contain a README that contains information about the program and includes steps on how to run the program.
 
-The files containing lightning strikes (as single JSON objects, mimicking lightning events) and assets (as an array of JSON objects) can be found in this repo. These files should be used *as is* as input.
+The files containing lightning strikes (as single JSON objects, mimicking lightning events) and assets (as an array of JSON objects) can be found in this repo. These files should be used _as is_ as input.
 
 Feel free to use open source libraries where available...
 

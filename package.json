@@ -1,0 +1,27 @@
+{
+  "name": "lightning-alert",
+  "version": "1.0.0",
+  "description": "dtn interview",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && jest dist/tests/main.spec.js",
+    "run": "tsc && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/dtnse/lightning-alert.git"
+  },
+  "author": "Nicholas Shankland",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/dtnse/lightning-alert#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.34",
+    "jest": "^28.1.0",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
