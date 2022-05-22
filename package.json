@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "tsc && jest dist/tests/main.spec.js",
-    "run": "tsc && node dist/index.js"
+    "run": "tsc && node dist/index.js",
+    "dev": "tsc -watch && nodemon dist/index.js"
   },
   "author": "Nicholas Shankland",
   "license": "MIT",
@@ -17,6 +18,7 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
   }
 }

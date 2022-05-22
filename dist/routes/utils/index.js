@@ -17,7 +17,6 @@ function main(assets, strikes) {
     for (let i = 0; i < strikes.length; i++) {
         let strike = strikes[i];
         const quadKey = quadkey_1.default.convertLatLongToQuadKey(strike.latitude, strike.longitude);
-        console.log("quadkey: ", quadKey);
         if (quadKeyMap[quadKey] && !quadKeyMap[quadKey].visited) {
             console.log(`${quadKeyMap[quadKey].assetOwner}:${quadKeyMap[quadKey].assetName}`);
             quadKeyMap[quadKey].visited = true;

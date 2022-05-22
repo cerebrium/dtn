@@ -72,20 +72,20 @@ const sampleLightningData = [
 const sampleAsset = [
     {
         assetName: "Test Asset",
-        quadKey: "303113033103",
+        quadKey: "023113203031",
         assetOwner: "Test Owner",
     },
 ];
 describe("convertLatLongToQuadKey", () => {
     it("should convert lat long to quadkey", () => {
-        expect(index_1.default.convertLatLongToQuadKey(33.5524951, -94.5822016)).toBe("303113033103");
+        expect(index_1.default.convertLatLongToQuadKey(33.5524951, -94.5822016)).toBe("023113203031");
     });
 });
 describe("main", () => {
     it("should log for every asset that has the correct quadKey", () => {
         const spy = jest.spyOn(console, "log");
-        (0, index_2.main)(sampleAsset, sampleLightningData[0]);
-        (0, index_2.main)(sampleAsset, sampleLightningData[0]);
+        (0, index_2.main)(sampleAsset, sampleLightningData);
+        (0, index_2.main)(sampleAsset, sampleLightningData);
         expect(spy).toHaveBeenCalledWith("Test Owner:Test Asset");
         // Make sure it isn't calling more than once per strike
         expect(spy).toHaveBeenCalledTimes(1);

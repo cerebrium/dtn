@@ -45,13 +45,13 @@ function createQuadKeyMap(assets: Array<Asset>) {
 
 export function main(assets: Array<Asset>, strikes: any) {
   const quadKeyMap = createQuadKeyMap(assets);
+
   for (let i = 0; i < strikes.length; i++) {
     let strike = strikes[i];
     const quadKey = tileSystem.convertLatLongToQuadKey(
       strike.latitude,
       strike.longitude
     );
-    console.log("quadkey: ", quadKey);
     if (quadKeyMap[quadKey] && !quadKeyMap[quadKey].visited) {
       console.log(
         `${quadKeyMap[quadKey].assetOwner}:${quadKeyMap[quadKey].assetName}`
