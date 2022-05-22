@@ -12,7 +12,7 @@ To Run the tests:
 1. (assuming installed) npm test
 
 There are three main sections to this repo:
-
+<pre>
 1. ./routes/utils/index.ts
    a. This is where the data is actually handled
    b. I have added into the file at the top a description of how it is handled
@@ -23,6 +23,7 @@ There are three main sections to this repo:
 3. ./tests/main.spec.ts
    a. This is where the tests live (I used jest)
 
+</pre>
 ANSWERS TO QUESTIONS
 
 What is the time complexity for determining if a strike has occurred for a particular asset?
