@@ -34,3 +34,8 @@ If we put this code into production, but found it too slow, or it needed to scal
 
 - Maintaining the assets as a hashmap would take O(m) off the runtime of this route (also would reduce space complexity). Pre-processing this data then (with a bunch more assets would become more important as well) would be the first step.
 - Looping through each lightning strike is also non-ideal, but in production I would assume that this route would be hit for each strike, so pre-processing of lightning can't actually happen. This said, each strike would have to be visited at least once, so not sure how best to optimize the lightning data.
+
+
+OTHER THOUGHTS:
+1. I checked that there were no duplicate assets at a single quadkey. If there were, the current solution would not work. Instead of a hashmap -> asset relationship, I would need a hashmap -> array. When key matches quadkey, loop through the array of assets and alert for each. This would increase the runtime to at worst O(m) in the lookup stage. Due to each assets having to be looped over for each quadkay match, removing the quadkey from the hashmap instead of adding a visited property to the asset would be the faster approach. 
+
