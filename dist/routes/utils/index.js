@@ -8,14 +8,20 @@ const quadkey_1 = __importDefault(require("../../quadkey"));
 function createQuadKeyMap(assets) {
     const quadKeyMap = {};
     assets.forEach((asset) => {
-        quadKeyMap[asset.quadKey] = asset;
+        if ((asset === null || asset === void 0 ? void 0 : asset.quadKey) && asset.assetOwner && asset.assetName) {
+            quadKeyMap[asset.quadKey] = asset;
+        }
     });
     return quadKeyMap;
 }
 function main(assets, strikes) {
+    if (!strikes)
+        return;
     const quadKeyMap = createQuadKeyMap(assets);
     for (let i = 0; i < strikes.length; i++) {
         let strike = strikes[i];
+        if (!strike.latitude || !strike.longitude)
+            continue;
         const quadKey = quadkey_1.default.convertLatLongToQuadKey(strike.latitude, strike.longitude);
         if (quadKeyMap[quadKey] && !quadKeyMap[quadKey].visited) {
             console.log(`${quadKeyMap[quadKey].assetOwner}:${quadKeyMap[quadKey].assetName}`);

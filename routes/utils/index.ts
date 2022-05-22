@@ -38,20 +38,27 @@ type QuadKeyMap = {
 function createQuadKeyMap(assets: Array<Asset>) {
   const quadKeyMap: QuadKeyMap = {};
   assets.forEach((asset) => {
-    quadKeyMap[asset.quadKey] = asset;
+    if (asset?.quadKey && asset.assetOwner && asset.assetName) {
+      quadKeyMap[asset.quadKey] = asset;
+    }
   });
   return quadKeyMap;
 }
 
 export function main(assets: Array<Asset>, strikes: Array<LightningStrike>) {
+  if (!strikes) return;
+
   const quadKeyMap = createQuadKeyMap(assets);
 
   for (let i = 0; i < strikes.length; i++) {
     let strike = strikes[i];
+    if (!strike.latitude || !strike.longitude) continue;
+
     const quadKey = tileSystem.convertLatLongToQuadKey(
       strike.latitude,
       strike.longitude
     );
+
     if (quadKeyMap[quadKey] && !quadKeyMap[quadKey].visited) {
       console.log(
         `${quadKeyMap[quadKey].assetOwner}:${quadKeyMap[quadKey].assetName}`

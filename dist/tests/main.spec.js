@@ -76,6 +76,7 @@ const sampleAsset = [
         assetOwner: "Test Owner",
     },
 ];
+// Not strictly necessary, but in transferring the class from c# to ts I wanted to make sure it ran
 describe("convertLatLongToQuadKey", () => {
     it("should convert lat long to quadkey", () => {
         expect(index_1.default.convertLatLongToQuadKey(33.5524951, -94.5822016)).toBe("023113203031");
