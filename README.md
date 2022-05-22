@@ -33,4 +33,4 @@ What is the time complexity for determining if a strike has occurred for a parti
 If we put this code into production, but found it too slow, or it needed to scale to many more users or more frequent strikes, what are the first things you would think of to speed it up?
 
 - Maintaining the assets as a hashmap would take O(m) off the runtime of this route (also would reduce space complexity). Pre-processing this data then (with a bunch more assets would become more important as well) would be the first step.
-- Looping through each lightning strike is also non-ideal, but it production I would assume that this route would be hit for each strike, so pre-processing of lightning can't actually happen. This said, each strike would have to be visited at least once, so not sure how best to optimize the lightning data.
+- Looping through each lightning strike is also non-ideal, but in production I would assume that this route would be hit for each strike, so pre-processing of lightning can't actually happen. This said, each strike would have to be visited at least once, so not sure how best to optimize the lightning data.
