@@ -43,7 +43,7 @@ function createQuadKeyMap(assets: Array<Asset>) {
   return quadKeyMap;
 }
 
-export function main(assets: Array<Asset>, strikes: any) {
+export function main(assets: Array<Asset>, strikes: Array<LightningStrike>) {
   const quadKeyMap = createQuadKeyMap(assets);
 
   for (let i = 0; i < strikes.length; i++) {

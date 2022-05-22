@@ -85,7 +85,6 @@ describe("main", () => {
     it("should log for every asset that has the correct quadKey", () => {
         const spy = jest.spyOn(console, "log");
         (0, index_2.main)(sampleAsset, sampleLightningData);
-        (0, index_2.main)(sampleAsset, sampleLightningData);
         expect(spy).toHaveBeenCalledWith("Test Owner:Test Asset");
         // Make sure it isn't calling more than once per strike
         expect(spy).toHaveBeenCalledTimes(1);
